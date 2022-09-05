@@ -18,7 +18,39 @@
 		18D775C522AD944300AE281E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D775C422AD944300AE281E /* ContentView.swift */; };
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		198DBC7128C5D5BE00FB077A /* ColorFilterKernel.metal in Sources */ = {isa = PBXBuildFile; fileRef = 198DBC7028C5D5BE00FB077A /* ColorFilterKernel.metal */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		198DBC6D28C5D4BC00FB077A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.metal";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/${INPUT_FILE_BASE}.air",
+			);
+			runOncePerArchitecture = 0;
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metal -c -fcikernel \"$(INPUT_FILE_PATH)\" \\\n    -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+		198DBC6E28C5D52100FB077A /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.air";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
+			);
+			runOncePerArchitecture = 0;
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		1839F4AF25190F2A00BB00F1 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -34,6 +66,7 @@
 		18D775C622AD944400AE281E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		198DBC7028C5D5BE00FB077A /* ColorFilterKernel.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ColorFilterKernel.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +122,7 @@
 		18D775BF22AD944300AE281E /* RayVinci */ = {
 			isa = PBXGroup;
 			children = (
+				198DBC6F28C5D5A000FB077A /* Filters */,
 				184937D62674F1160047AD17 /* ImageProcessor.swift */,
 				18B71E962679022D007239A6 /* Views */,
 				185DB95326739F8600A4ED9A /* Model */,
@@ -98,6 +132,14 @@
 				18D775CE22AD944400AE281E /* Info.plist */,
 			);
 			path = RayVinci;
+			sourceTree = "<group>";
+		};
+		198DBC6F28C5D5A000FB077A /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				198DBC7028C5D5BE00FB077A /* ColorFilterKernel.metal */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +155,8 @@
 				18D775BB22AD944300AE281E /* Resources */,
 			);
 			buildRules = (
+				198DBC6E28C5D52100FB077A /* PBXBuildRule */,
+				198DBC6D28C5D4BC00FB077A /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -198,6 +242,7 @@
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
 				185DB95926739FB900A4ED9A /* PaintingWall.swift in Sources */,
 				18B71E932678F4FF007239A6 /* FilterListView.swift in Sources */,
+				198DBC7128C5D5BE00FB077A /* ColorFilterKernel.metal in Sources */,
 				185DB95726739FA100A4ED9A /* Gallery.swift in Sources */,
 				184937D72674F1160047AD17 /* ImageProcessor.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
