@@ -92,6 +92,8 @@ class ImageProcessor {
       applyBuiltInEffect(input: input)
     case .colorKernel:
       applyColorKernel(input: input)
+    case .warpKernel:
+      applyWarpKernel(input: input)
     default:
       print("Unsupported Effect")
     }
@@ -99,6 +101,15 @@ class ImageProcessor {
   
   private func applyColorKernel(input: CIImage) {
     let filter = ColorFilter()
+    filter.inputImage = input
+    if let outputImage = filter.outputImage,
+       let renderImage = renderAsUIImage(outputImage) {
+      output = renderImage
+    }
+  }
+  
+  private func applyWarpKernel(input: CIImage) {
+    let filter = WarpFilter()
     filter.inputImage = input
     if let outputImage = filter.outputImage,
        let renderImage = renderAsUIImage(outputImage) {
