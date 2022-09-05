@@ -39,9 +39,9 @@ extern "C" {
   namespace coreimage {
     float4 colorFilterKernel(sample_t s) { // 픽셀 단위로 컬러를 조작하는 color kernel.
       float4 swappedColor;
-      swappedColor.r = s.r;
-      swappedColor.g = s.g;
-      swappedColor.b = s.b;
+      swappedColor.r = s.b;
+      swappedColor.g = s.r;
+      swappedColor.b = s.g;
       swappedColor.a = s.a;
       return swappedColor;
     }
