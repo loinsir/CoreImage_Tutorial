@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "99891ECA-596A-4337-A373-8BFCB5F9328F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9260D5FB-4219-4277-8CD2-7CB0C5AB49B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RayVinci/ImageProcessor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "process(painting:effect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9260D5FB-4219-4277-8CD2-7CB0C5AB49B9 - 587d4d877da07024"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RayVinci.ImageProcessor.process(painting: RayVinci.Painting, effect: RayVinci.ProcessEffect) -&gt; ()"
+                  moduleName = "RayVinci"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/loinsir/Downloads/RayVinci_Materials/starter/RayVinci/ImageProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "9260D5FB-4219-4277-8CD2-7CB0C5AB49B9 - 587d4d877da07024"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RayVinci.ImageProcessor.process(painting: RayVinci.Painting, effect: RayVinci.ProcessEffect) -&gt; ()"
+                  moduleName = "RayVinci"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/loinsir/Downloads/RayVinci_Materials/starter/RayVinci/ImageProcessor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
