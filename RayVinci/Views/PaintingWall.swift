@@ -50,6 +50,8 @@ struct PaintingWall: View {
                   switch index {
                   case 0:
                     effect = .builtIn
+                  case 1:
+                    effect = .colorKernel
                   default:
                     effect = .builtIn
                   }

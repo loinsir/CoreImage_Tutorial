@@ -30,17 +30,31 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-# include <CoreImage/CoreImage.h>
+import CoreImage
 
-extern "C" {
-  namespace coreimage {
-    float4 colorFilterKernel(sample_t s) {
-      float4 swappedColor;
-      swappedColor.r = s.g;
-      swappedColor.g = s.b;
-      swappedColor.b = s.r;
-      swappedColor.a = s.a;
-      return swappedColor;
+class ColorFilter: CIFilter {
+  var inputImage: CIImage?
+  
+  // 1. Load Kernel From ColorFilterKernel.metal 'Only Once'
+  static var kernel: CIKernel = { () -> CIColorKernel in
+    guard let url = Bundle.main.url(forResource: "ColorFilterKernel.ci", withExtension: "metallib"),
+          let data = try? Data(contentsOf: url) else {
+      fatalError("Unable to load metallib")
     }
+    
+    guard let kernel = try? CIColorKernel(functionName: "colorFilterKernel", fromMetalLibraryData: data) else {
+      fatalError("Unable to create color kernel")
+    }
+    
+    return kernel
+  }()
+  
+  override var outputImage: CIImage? {
+    guard let inputImage = inputImage else {
+      return nil
+    }
+    return ColorFilter.kernel.apply(extent: inputImage.extent, roiCallback: { _, rect in // extent: determines how much of the input image gets passed to the kernel, ROI : Region of Interest, 관심영역, roiCallback: determines the rect of the input image needed to render the rect in outputImage.
+      return rect
+    }, arguments: [inputImage])
   }
 }

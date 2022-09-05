@@ -90,8 +90,19 @@ class ImageProcessor {
     switch effect {
     case .builtIn:
       applyBuiltInEffect(input: input)
+    case .colorKernel:
+      applyColorKernel(input: input)
     default:
       print("Unsupported Effect")
+    }
+  }
+  
+  private func applyColorKernel(input: CIImage) {
+    let filter = ColorFilter()
+    filter.inputImage = input
+    if let outputImage = filter.outputImage,
+       let renderImage = renderAsUIImage(outputImage) {
+      output = renderImage
     }
   }
 }
