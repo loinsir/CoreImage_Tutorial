@@ -22,6 +22,7 @@
 		198DBC7528C5D77B00FB077A /* ColorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198DBC7428C5D77B00FB077A /* ColorFilter.swift */; };
 		198DBC7728C5E3D800FB077A /* WarpFilterKernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 198DBC7628C5E3D800FB077A /* WarpFilterKernel.ci.metal */; };
 		198DBC7928C5E5E000FB077A /* WarpFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198DBC7828C5E5E000FB077A /* WarpFilter.swift */; };
+		198DBC8028C5F33000FB077A /* BlendFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198DBC7F28C5F33000FB077A /* BlendFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -73,6 +74,7 @@
 		198DBC7428C5D77B00FB077A /* ColorFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFilter.swift; sourceTree = "<group>"; };
 		198DBC7628C5E3D800FB077A /* WarpFilterKernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = WarpFilterKernel.ci.metal; sourceTree = "<group>"; };
 		198DBC7828C5E5E000FB077A /* WarpFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarpFilter.swift; sourceTree = "<group>"; };
+		198DBC7F28C5F33000FB077A /* BlendFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlendFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				198DBC7428C5D77B00FB077A /* ColorFilter.swift */,
 				198DBC7628C5E3D800FB077A /* WarpFilterKernel.ci.metal */,
 				198DBC7828C5E5E000FB077A /* WarpFilter.swift */,
+				198DBC7F28C5F33000FB077A /* BlendFilter.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				18B71E932678F4FF007239A6 /* FilterListView.swift in Sources */,
 				198DBC7128C5D5BE00FB077A /* ColorFilterKernel.ci.metal in Sources */,
 				185DB95726739FA100A4ED9A /* Gallery.swift in Sources */,
+				198DBC8028C5F33000FB077A /* BlendFilter.swift in Sources */,
 				184937D72674F1160047AD17 /* ImageProcessor.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 				198DBC7928C5E5E000FB077A /* WarpFilter.swift in Sources */,

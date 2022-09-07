@@ -94,6 +94,12 @@ class ImageProcessor {
       applyColorKernel(input: input)
     case .warpKernel:
       applyWarpKernel(input: input)
+    case .blendKernel:
+      guard let colorImage = UIImage(named: "multi_color"),
+            let multiColor = CIImage(image: colorImage) else {
+        return
+      }
+      applyBlendKernel(input: input, background: multiColor)
     default:
       print("Unsupported Effect")
     }
@@ -111,6 +117,16 @@ class ImageProcessor {
   private func applyWarpKernel(input: CIImage) {
     let filter = WarpFilter()
     filter.inputImage = input
+    if let outputImage = filter.outputImage,
+       let renderImage = renderAsUIImage(outputImage) {
+      output = renderImage
+    }
+  }
+  
+  private func applyBlendKernel(input: CIImage, background: CIImage) {
+    let filter = BlendFilter()
+    filter.inputImage = input
+    filter.backgroundImage = background
     if let outputImage = filter.outputImage,
        let renderImage = renderAsUIImage(outputImage) {
       output = renderImage

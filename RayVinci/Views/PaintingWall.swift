@@ -54,6 +54,8 @@ struct PaintingWall: View {
                     effect = .colorKernel
                   case 2:
                     effect = .warpKernel
+                  case 3:
+                    effect = .blendKernel
                   default:
                     effect = .builtIn
                   }
